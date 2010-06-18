@@ -1,0 +1,21 @@
+In our development environment, we provision all of our servers with a configuration value in the machine.config which applications can use to determine what configuration value to use.  
+
+This is highly specific to our development environment and not likely to have value elsewhere other than a rough example of a PowerShell Module.
+
+There are a couple of different ways to deploy Environment.PowerShell.dll module:
+
+- copy to %PSModulePath%\Environment.PowerShell\Environment.PowerShell.dll
+- copy to some other known location
+
+When running a PowerShell session, it might be necessary to import the module into the session.  To do this execute:
+
+If module was copied to %PSModulePath%\Environment.PowerShell
+
+import-module Environment.PowerShell
+
+Otherwise provide the path to the location of the Environment.PowerShell.dll.  For example, if you copied to C:\modules:
+
+import-module c:\modules\Environment.PowerShell
+
+You must be an administrator to run this as Environment.PowerShell is writing appSettings values to the available machine.configs.
+
